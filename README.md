@@ -8,20 +8,20 @@ It creates a .war file that can be deployed in Apache Tomcat
 This application utilizes several third party softwares, primarily Apache Camel 2.16
 For more information, please see below
  
- ###Apache Camel
-  http://camel.apache.org/
+###Apache Camel
+ http://camel.apache.org/
  
-  ####Rest DSL
-   http://camel.apache.org/rest-dsl.html
+####Rest DSL
+ http://camel.apache.org/rest-dsl.html
  
-  ####Camel Slack Component
-   http://camel.apache.org/slack.html
+####Camel Slack Component
+ http://camel.apache.org/slack.html
  
-  ####Dynamic To
-   http://camel.apache.org/message-endpoint.html
+####Dynamic To
+http://camel.apache.org/message-endpoint.html
 
- ###GroupMe API
-  https://github.com/wreed12345/GroupMe-Java-API
+###GroupMe API
+https://github.com/wreed12345/GroupMe-Java-API
 
 
 ##How to build
