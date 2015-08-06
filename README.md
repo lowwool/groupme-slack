@@ -9,15 +9,15 @@ This application utilizes several third party softwares, primarily Apache Camel 
 
 For more information, please see below
  
-1. Apache Camel:http://camel.apache.org/
+1. **Apache Camel:**http://camel.apache.org/
 
-  1. Rest DSL:http://camel.apache.org/rest-dsl.html
+  1. **Rest DSL:**http://camel.apache.org/rest-dsl.html
 
-  2. Camel Slack Component:http://camel.apache.org/slack.html
+  2. **Camel Slack Component:**http://camel.apache.org/slack.html
 
-  3. Dynamic To:http://camel.apache.org/message-endpoint.html
+  3. **Dynamic To:**http://camel.apache.org/message-endpoint.html
 
-2. GroupMe API:https://github.com/wreed12345/GroupMe-Java-API
+2. **GroupMe API:**https://github.com/wreed12345/GroupMe-Java-API
 
 ##How to build
 	mvn clean package
