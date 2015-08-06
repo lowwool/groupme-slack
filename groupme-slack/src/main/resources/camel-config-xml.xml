@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:camel="http://camel.apache.org/schema/spring"
+       xsi:schemaLocation="
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+  <!-- use camel-metrics route policy to gather metrics for all routes -->
+<!--   <bean id="metricsRoutePolicyFactory" class="org.apache.camel.component.metrics.routepolicy.MetricsRoutePolicyFactory"/> -->
+
+  <bean id="slack" class="org.apache.camel.component.slack.SlackComponent">
+        <property name="webhookUrl" value="https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX"/>
+  </bean>
+
+  <!-- a bean for user services -->
+  <bean id="groupMeSlackService" class="groupmeslack.service.GroupMeSlackService"/>
+  
+  <bean id="groupMeSender" class="github.io.wreed12345.MessageSender"/>
+
+  <camelContext id="myCamel" xmlns="http://camel.apache.org/schema/spring"> 
+  <onException>
+            <exception>java.lang.Exception</exception>
+            <handled>
+                <constant>true</constant>
+            </handled>
+  </onException>
+    <!-- configure rest to use the camel-servlet component -->
+    <!-- and tell to output json in pretty print mode -->
+    <!-- setup context path and port number that Apache Tomcat will deploy this application with,
+         as we use the servlet component, then we need to aid Camel to tell it these details so Camel
+         knows the url to the REST services.
+         Notice: This is optional, but needed if the RestRegistry should enlist accurate information.
+         You can access the RestRegistry from JMX at runtime -->
+    <restConfiguration component="servlet" contextPath="groupme-slack/rest" port="8080">
+       <dataFormatProperty key="prettyPrint" value="true"/> 
+    </restConfiguration>
+
+    <!-- defines the rest services using the context-path /user -->
+    <rest path="/groupmeslack">
+      <description>User rest service</description>
+
+      <!-- this is a rest GET to view an user by the given id 
+      <get uri="/{id}" outType="rest.User">
+        <description>Find user by id</description>
+        <param name="id" type="path" description="The id of the user to get" dataType="int"/>
+        <to uri="bean:userService?method=getUser(${header.id})"/>
+      </get> -->
+
+
+	<!-- NOTE: Slack actually posts application/x-www-form-urlencoded, which could not be consumed properly -->
+	  <post uri="/fromSlack" consumes="application/xml">
+        <description>message from slack to groupme</description>
+        <param name="body" type="body" description="message from slack to groupme"/>
+        <to uri="bean:groupMeSlackService?method=sendToGroupMe"/>
+      </post>
+
+      <post uri="/fromGroupMe" bindingMode="json" type="groupmeslack.data.GroupMeMessage" consumes="application/json">
+        <description>message from groupme to slack</description>
+        <param name="body" type="body" description="message from groupme to slack"/>
+        <to uri="bean:groupMeSlackService?method=sendToSlack"/>
+      </post>
+
+      <!-- this is a rest GET to find all users
+      <get uri="/findAll" outType="rest.User[]">
+        <description>Find all users</description>
+        <to uri="bean:userService?method=listUsers"/>
+      </get> -->
+           
+    </rest>
+    
+    <route>
+    	<from uri="seda:toSlack"/>
+		<toD uri="slack:#newfrontier?iconUrl=${header.avatar}&amp;username=${header.username}"/>
+	</route>
+	
+	<route>
+    	<from uri="seda:toGroupMe"/>
+		<to uri="bean:groupMeSender?method=sendTextMessage(${body},${header.bot})"/>
+	</route>
+
+  </camelContext>
+
+</beans>
