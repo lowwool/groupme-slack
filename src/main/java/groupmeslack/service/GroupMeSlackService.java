@@ -75,7 +75,6 @@ public class GroupMeSlackService {
 	  public void sendToGroupMe(String messageString) throws IOException{
 		SlackMessage message = SlackParser.parseSlackMessage(messageString);
 		//Message camelMessage = null;
-		//if (message.getUser_id().equals("U04F5L0GW")) {
 		  if(slackBotMap.containsKey(message.getUser_id())){
 			//camelMessage = new DefaultMessage();
 			//Map<String, Object> headersMap = new HashMap<>();
