@@ -18,6 +18,7 @@ For more information, please see below
   3. **Dynamic To:**http://camel.apache.org/message-endpoint.html
 
 2. **GroupMe API:**https://github.com/wreed12345/GroupMe-Java-API
+	a) https://dev.groupme.com/docs/v3
 
 ##How to build 
 	mvn clean package
