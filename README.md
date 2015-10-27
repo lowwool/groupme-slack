@@ -1,6 +1,6 @@
 # groupme-slack
 
-This application is creates a two-communication between a GroupMe group and a Slack channel.
+This application is creates a two way communication between a GroupMe group and a Slack channel.
 It creates a .war file that can be deployed in Apache Tomcat
 
 
