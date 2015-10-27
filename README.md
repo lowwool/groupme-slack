@@ -19,7 +19,7 @@ For more information, please see below
 
 2. **GroupMe API:**https://github.com/wreed12345/GroupMe-Java-API
 
-##How to build
+##How to build 
 	mvn clean package
 ##How to deploy
 	mvn clean package
