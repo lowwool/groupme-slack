@@ -24,7 +24,7 @@ For more information, please see below
 ##How to deploy
 	mvn clean package
 
-##Running it locally
+##Running it locally on swag box.
 	mvn jetty:run
 	
 ##TODO
