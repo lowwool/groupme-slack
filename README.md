@@ -29,4 +29,7 @@ For more information, please see below
 	
 ##TODO
 	Improve README.md 
+	
+	Mentions:
+	https://groups.google.com/forum/#!topic/groupme-api-support/mNyIZB_S1jc
 
