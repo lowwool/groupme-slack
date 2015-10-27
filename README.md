@@ -1,4 +1,4 @@
-# groupme-slack - swag
+# groupme-slack
 
 This application is creates a two way communication between a GroupMe group and a Slack channel.
 It creates a .war file that can be deployed in Apache Tomcat
@@ -24,9 +24,11 @@ For more information, please see below
 ##How to deploy
 	mvn clean package
 
-##Running it locally on swag box.
-	mvn jetty:run
-	
+##Running it locally
+
+##OpenShift Hosting
+
 ##TODO
 	Improve README.md 
+
 
