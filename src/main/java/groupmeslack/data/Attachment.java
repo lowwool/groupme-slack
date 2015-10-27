@@ -22,6 +22,8 @@ import com.wordnik.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Represents an user of the system")
 public class Attachment {
 
+    private static final String NAME_OF_ATTACHMENT = "The name of the attachment";
+
     private String name;
     private String content;
 
@@ -33,7 +35,7 @@ public class Attachment {
         this.content = content;
     }
 
-    @ApiModelProperty(value = "The name of the attachment", required = true)
+    @ApiModelProperty(value = NAME_OF_ATTACHMENT, required = true)
     public String getName() {
         return name;
     }
@@ -42,7 +44,7 @@ public class Attachment {
         this.name = name;
     }
 
-    @ApiModelProperty(value = "The content of the attachment", required = true)
+    @ApiModelProperty(value = NAME_OF_ATTACHMENT, required = true)
     public String getContent() {
         return content;
     }
