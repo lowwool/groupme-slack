@@ -1,4 +1,4 @@
-# groupme-slack
+# groupme-slack - swag
 
 This application is creates a two way communication between a GroupMe group and a Slack channel.
 It creates a .war file that can be deployed in Apache Tomcat
