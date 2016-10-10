@@ -32,6 +32,8 @@ For more information, please see below
 ##TODO
 	Improve README.md 
 	
+	Migrate to Openshift v3
+	
 	Mentions:
 	https://groups.google.com/forum/#!topic/groupme-api-support/mNyIZB_S1jc
 
