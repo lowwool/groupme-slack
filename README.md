@@ -22,10 +22,9 @@ For more information, please see below
 
 ##How to build 
 	mvn clean package
-##How to deploy
-	mvn clean package
 
 ##Running it locally
+	mvn jetty:run
 
 ##OpenShift Hosting
 
