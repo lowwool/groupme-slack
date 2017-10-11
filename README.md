@@ -18,14 +18,22 @@ For more information, please see below
   3. **Dynamic To:**http://camel.apache.org/message-endpoint.html
 
 2. **GroupMe API:**https://github.com/wreed12345/GroupMe-Java-API
+	a) https://dev.groupme.com/docs/v3
 
-##How to build
+##How to build 
 	mvn clean package
-##How to deploy
-	mvn clean package deploy
 
 ##Running it locally
 	mvn jetty:run
-	
+
+##OpenShift Hosting
+
 ##TODO
 	Improve README.md 
+	
+	Migrate to Openshift v3
+	
+	Mentions:
+	https://groups.google.com/forum/#!topic/groupme-api-support/mNyIZB_S1jc
+
+
