@@ -2,6 +2,7 @@
 
 # Package Files #
 *.war
+*.rpm
 
 target/
 
