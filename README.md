@@ -35,5 +35,3 @@ For more information, please see below
 	
 	Mentions:
 	https://groups.google.com/forum/#!topic/groupme-api-support/mNyIZB_S1jc
-
-Jurrand Was Here.
